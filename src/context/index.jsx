@@ -23,8 +23,6 @@ const GlobalState = ({ children }) => {
                 setSearchParam("");
 
             }
-
-
         }catch(error){
             console.log(error);
             setLoading(false);
