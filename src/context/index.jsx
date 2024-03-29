@@ -1,4 +1,5 @@
 import {createContext, useState} from "react";
+import {useNavigate} from "react-router-dom";
 
 export const GlobalContext = createContext(null);
 
@@ -9,6 +10,7 @@ const GlobalState = ({ children }) => {
     const [recipeDetailsData, setRecipeDetailsData] = useState(null);
     const [favoritesList, setFavoritesList] = useState([]);
 
+    const navigate = useNavigate();
     const handleSubmit = async (event) => {
         event.preventDefault();
         try{
@@ -23,6 +25,7 @@ const GlobalState = ({ children }) => {
                 setRecipeList(data?.data?.recipes);
                 setLoading(false);
                 setSearchParam("");
+                navigate("/");
 
             }
         }catch(error){
